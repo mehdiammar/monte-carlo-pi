@@ -1,5 +1,3 @@
-package calculatingPi;
-
 import java.awt.Graphics;
 import java.util.Random;
 
@@ -26,9 +24,7 @@ public class Grapher extends JFrame {
 	}
 
 	public boolean isContained() {
-		if (Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)) <= s)
-			return true;
-		return false;
+		return (Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)) <= s);
 	}
 
 	public void run() {
