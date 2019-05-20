@@ -1,3 +1,5 @@
+package calculatingPi;
+
 import java.awt.Graphics;
 import java.util.Random;
 
@@ -34,7 +36,7 @@ public class Grapher extends JFrame {
 		if (isContained()) {
 			k++;
 		}
-		this.setTitle(k / n * 4 + "");
+		this.setTitle((int) k + " contained out of " + (int) n + ", estimating pi as: " + k / n * 4);
 	}
 
 	public static void main(String[] args) {
