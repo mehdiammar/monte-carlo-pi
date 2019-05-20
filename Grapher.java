@@ -1,5 +1,4 @@
-package calculatingPi;
-
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 
@@ -19,24 +18,29 @@ public class Grapher extends JFrame {
 	}
 
 	public void paint(Graphics g) {
-		g.drawOval(3, 26, 793, 770);
+		if (isContained())
+			g.setColor(Color.BLUE);
 		g.fillOval(x, y, ds, ds);
 		run();
 		repaint();
 	}
 
 	public boolean isContained() {
-		return (Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)) <= s);
+		return (Math.sqrt(Math.pow(x - s / 2, 2) + Math.pow(-1 * y + s / 2, 2)) <= s / 2);
 	}
 
 	public void run() {
+		Double v = k / n * 4;
+		v = Double.parseDouble(String.format("%.9f", v));
+		Double p = 100 * Math.abs(((k / n * 4) - Math.PI) / Math.PI);
+		p = Double.parseDouble(String.format("%.4f", 100 * Math.abs(((k / n * 4) - Math.PI) / Math.PI)));
 		x = r.nextInt(s) + 1;
 		y = r.nextInt(s) + 1;
 		n++;
 		if (isContained()) {
 			k++;
 		}
-		this.setTitle((int) k + " contained out of " + (int) n + ", estimating pi as: " + k / n * 4);
+		this.setTitle((int) k + " contained out of " + (int) n + ", estimating Pi as " + v + " (" + p + "%)");
 	}
 
 	public static void main(String[] args) {
