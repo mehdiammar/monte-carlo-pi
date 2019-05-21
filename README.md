@@ -2,4 +2,4 @@
 
 Approximate Pi using the Monte Carlo Method.
 
-![Screenshot](https://i.imgur.com/y0ZPPHs.png)
+![Screenshot](https://i.imgur.com/7ietqTa.png)
