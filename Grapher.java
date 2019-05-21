@@ -1,3 +1,5 @@
+package calculatingPi;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
@@ -6,7 +8,7 @@ import javax.swing.JFrame;
 
 public class Grapher extends JFrame {
 	Random r = new Random();
-	int x, y, s = 800, ds = 3;
+	int x, y, s = 800, ds = 6;
 	static double n = 0;
 	static double k = 0;
 
@@ -20,6 +22,7 @@ public class Grapher extends JFrame {
 	public void paint(Graphics g) {
 		if (isContained())
 			g.setColor(Color.BLUE);
+		else g.setColor(Color.RED);
 		g.fillOval(x, y, ds, ds);
 		run();
 		repaint();
