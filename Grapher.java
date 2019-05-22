@@ -1,5 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Random;
 
 import javax.swing.JFrame;
@@ -9,21 +11,37 @@ public class Grapher extends JFrame {
 	int x, y, s = 800, ds = 6;
 	static double n = 0;
 	static double k = 0;
+	static boolean stp = false;
 
 	Grapher() {
 		setVisible(true);
 		setBounds(s, 200, s, s);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
+
+		this.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (stp == false)
+					stp = true;
+				else {
+					stp = false;
+					repaint();
+				}
+			}
+		});
 	}
 
 	public void paint(Graphics g) {
-		if (isContained())
-			g.setColor(Color.BLUE);
-		else g.setColor(Color.RED);
-		g.fillOval(x, y, ds, ds);
-		run();
-		repaint();
+		if (!stp) {
+			if (isContained())
+				g.setColor(Color.BLUE);
+			else
+				g.setColor(Color.RED);
+			g.fillOval(x, y, ds, ds);
+			run();
+			repaint();
+		}
 	}
 
 	public boolean isContained() {
