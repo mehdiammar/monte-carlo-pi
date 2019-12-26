@@ -1,5 +1,5 @@
 # monte-carlo-pi
 
-Approximate Pi using the Monte Carlo Method.
+Pi approximation with the Monte Carlo method
 
 ![Screenshot](https://i.imgur.com/7ietqTa.png)
